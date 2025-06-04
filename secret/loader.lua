@@ -1,7 +1,8 @@
 repeat task.wait() until game:IsLoaded()
 
-if getgenv().Key == nil then
-    getgenv().Key = "ZeroFlux HUB"
+local Key
+if Key == nil then
+    Key = "ZeroFlux HUB"
 end
 
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
@@ -10,11 +11,11 @@ local player = game.Players.LocalPlayer
 
 function sendnotification(message, type, submessage)
     if type == false or type == nil then
-        print("[ " .. getgenv().Key .. " ]: " .. message)
+        print("[ " .. Key .. " ]: " .. message)
     end
     if type == true or type == nil then
         Fluent:Notify({
-            Title = getgenv().Key,
+            Title = Key,
             Content = message,
             SubContent = submessage, -- Optional
             Duration = 5 -- Set to nil to make the notification not disappear
@@ -67,10 +68,10 @@ else
 end
 
 --------------------------------------------------------------------------------------DEVICE CHECK------------------------------------------------------------------------------------
-getgenv().R3TH_Device = Touchscreen and "Mobile" or "PC"
+local R3TH_Device = Touchscreen and "Mobile" or "PC"
 sendnotification(R3TH_Device .. " detected.", false)
 
-if getgenv().R3TH_Device == "Mobile" then
+if R3TH_Device == "Mobile" then
     sendnotification("Мобильные устройства не поддерживаются, только ПК", nil)
     task.wait(2)
     player:Kick("[ZeroFlux]\nМобильные устройства не поддерживаются, только ПК")
