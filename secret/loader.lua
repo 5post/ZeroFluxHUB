@@ -1,4 +1,3 @@
-local player = game.Players.LocalPlayer
 repeat wait() until game:IsLoaded()
 
 if Key == nil then
@@ -15,7 +14,7 @@ local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/
 		--Duration = 5 -- Set to nil to make the notification not disappear
 	--})
 --end
-
+local player = game.Players.LocalPlayer
 function sendnotification(message, type, submessage)
     if type == false or type == nil then
         print("[ " .. Key .. " ]: " .. message)
