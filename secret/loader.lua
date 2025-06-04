@@ -92,11 +92,11 @@ wait(2)
 
 --------------------------------------------------------------------------------------LOADER----------------------------------------------------------------------------------------
 if games[game.PlaceId] then
-    sendnotification("Game Supported ✅", nil)
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/snapsanix/snapsanix/refs/heads/main/Games/' .. games[game.PlaceId] .. '.lua'))()
+    sendnotification("Игра подерживается ✅", nil)
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/CrashCover123/ZeroFluxHUB/refs/heads/main/game/games/' .. games[game.PlaceId] .. '.lua'))()
 else
-    sendnotification("Game not Supported ❌", nil)
+    sendnotification("Игра не подерживается ❌", nil)
 	wait(2)
-	player:Kick("[ZeroFlux] Game not Supported ❌")
+	player:Kick("[ZeroFlux] Игра не подерживается ❌")
 end
 
