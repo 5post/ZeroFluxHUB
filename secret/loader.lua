@@ -23,6 +23,12 @@ function sendnotification(message, type, submessage)
     end
 end
 
+if getgenv().r3thexecuted then 
+    sendnotification("Скрипт уже запущен!", nil) 
+    return 
+end
+getgenv().r3thexecuted = true
+
 sendnotification("Loader executed.", false)
 
 --------------------------------------------------------------------------------------DEFINE----------------------------------------------------------------------------------------
