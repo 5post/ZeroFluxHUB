@@ -3,7 +3,7 @@ local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/d
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
 local Window = Fluent:CreateWindow({
-    Title = "ZeroFlux HUB 1.0 BETA Summer Edition💥",
+    Title = "ZeroFlux HUB 1.0 Summer Edition💥",
     SubTitle = "by CrashCover",
     TabWidth = 160,
     Size = UDim2.fromOffset(580, 460),
@@ -294,8 +294,8 @@ SaveManager:BuildConfigSection(Tabs.Settings)
 Window:SelectTab(1)
 
 Fluent:Notify({
-    Title = "Fluent",
-    Content = "The script has been loaded.",
+    Title = "ZeroFlux HUB",
+    Content = "Скрипт был загружен успешно",
     Duration = 8
 })
 
