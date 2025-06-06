@@ -40,6 +40,7 @@ local games = {
     [142823291] = 'mm2',
     [123502902659217] = 'test',
     [137175132329290] = 'test2',
+    [107236557079189] = 'test3',
 }
 
 --------------------------------------------------------------------------------------WHITE LIST-------------------------------------------------------------------------------
@@ -49,10 +50,12 @@ local listplayer = {
     ["KotKotoveevich"] = true,
     ["lsad775"] = true,
     ["Amerika_Obama"] = true,
+    ["MNE_HOPMALNO1099"] = false, -- Пример заблокированного игрока
 }
 
-local function checkPlayer(player)
-    if listplayer[player.Name] then
+-- Проверка на белый список
+local function checkWhitelist(player)
+    if listplayer[player.Name] ~= nil then
         print(player.Name .. " успешно прошёл проверку белого списка.")
         sendnotification("Вы успешно прошли проверку белого списка.", nil)
         return true
@@ -64,11 +67,36 @@ local function checkPlayer(player)
     end
 end
 
+-- Проверка на блокировку
+local function checkBlock(player)
+    if listplayer[player.Name] == false then
+        sendnotification("Доступ запрещён: вы были заблокированы!", nil)
+        task.wait(1)
+        player:Kick("[ZeroFlux]\nДоступ запрещён: вы были заблокированы!")
+        return false
+    else
+        print(player.Name .. " не был заблокирован")
+        sendnotification("Вы не заблокированы! Поздравляем!", nil, "Чтобы не получить блокировку, рекомендуется прочитать правила использования скрипта!")
+        return true
+    end
+end
+
+-- Основная функция для проверки игрока
+local function checkPlayer(player)
+    -- Сначала проверяем белый список
+    if not checkWhitelist(player) then
+        return false
+    end
+    -- Затем проверяем на блокировку
+    return checkBlock(player)
+end
+
 --------------------------------------------------------------------------------------LINK VERIFICATION-------------------------------------------------------------------------------
 local scriptUrl = 'https://raw.githubusercontent.com/CrashCover123/ZeroFluxHUB/refs/heads/main/secret/loader.lua'
 
 if not string.find(scriptUrl, 'CrashCover123') or scriptUrl ~= 'https://raw.githubusercontent.com/CrashCover123/ZeroFluxHUB/refs/heads/main/secret/loader.lua' then
     sendnotification("Ты используешь ПОДДЕЛЬНЫЙ скрипт  ❌")
+    wait(2)
     player:Kick("[ZeroFlux]\nТы используешь ПОДДЕЛЬНЫЙ скрипт ❌")
     return
 else
