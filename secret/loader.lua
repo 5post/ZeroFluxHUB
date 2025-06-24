@@ -92,9 +92,9 @@ local function checkPlayer(player)
 end
 
 --------------------------------------------------------------------------------------LINK VERIFICATION-------------------------------------------------------------------------------
-local scriptUrl = 'https://raw.githubusercontent.com/CrashCover123/ZeroFluxHUB/refs/heads/main/secret/loader.lua'
+local scriptUrl = 'https://raw.githubusercontent.com/5post/ZeroFluxHUB/refs/heads/main/secret/loader.lua'
 
-if not string.find(scriptUrl, 'CrashCover123') or scriptUrl ~= 'https://raw.githubusercontent.com/CrashCover123/ZeroFluxHUB/refs/heads/main/secret/loader.lua' then
+if not string.find(scriptUrl, '5post') or scriptUrl ~= 'https://raw.githubusercontent.com/5post/ZeroFluxHUB/refs/heads/main/secret/loader.lua' then
     sendnotification("Ты используешь ПОДДЕЛЬНЫЙ скрипт  ❌")
     wait(2)
     player:Kick("[ZeroFlux]\nТы используешь ПОДДЕЛЬНЫЙ скрипт ❌")
@@ -120,7 +120,7 @@ task.wait(2)
 --------------------------------------------------------------------------------------LOADER----------------------------------------------------------------------------------------
 if games[game.PlaceId] then
     sendnotification("Игра поддерживается ✅", nil)
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/CrashCover123/ZeroFluxHUB/refs/heads/main/game/games/' .. games[game.PlaceId] .. '.lua'))()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/5post/ZeroFluxHUB/refs/heads/main/game/games/' .. games[game.PlaceId] .. '.lua'))()
 else
     sendnotification("Игра не поддерживается ❌", nil)
     task.wait(2)
